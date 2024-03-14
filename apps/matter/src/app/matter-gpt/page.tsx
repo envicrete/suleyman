@@ -5,7 +5,7 @@ import SquigglyLines from '#/components/matter-gpt/squiggly-lines';
 export default function MatterGptLanding() {
   return (
     <div className="mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center py-2">
-      <main className="background-gradient mb-8 mt-4 flex w-full flex-1 flex-col items-center px-4 text-center sm:mb-0">
+      <div className="background-gradient mb-8 mt-4 flex w-full flex-1 flex-col items-center px-4 text-center sm:mb-0">
         <a
           href="https://envicrete.com/"
           target="_blank"
@@ -32,7 +32,7 @@ export default function MatterGptLanding() {
         >
           Design with MatterGPT
         </Link>
-      </main>
+      </div>
     </div>
   );
 }
