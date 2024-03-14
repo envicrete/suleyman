@@ -1,5 +1,5 @@
 {
-  "name": "create-t3-turbo",
+  "name": "envicrete",
   "private": true,
   "engines": {
     "node": ">=20.11.1"
@@ -21,11 +21,11 @@
     "typecheck": "turbo typecheck"
   },
   "devDependencies": {
-    "@acme/prettier-config": "workspace:^0.1.0",
+    "@envi/prettier-config": "workspace:^0.1.0",
     "@turbo/gen": "^1.12.4",
     "prettier": "^3.2.5",
     "turbo": "^1.12.4",
     "typescript": "^5.3.3"
   },
-  "prettier": "@acme/prettier-config"
+  "prettier": "@envi/prettier-config"
 }

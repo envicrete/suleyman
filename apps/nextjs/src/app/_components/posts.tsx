@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { use } from "react";
+import { use } from 'react';
 
-import type { RouterOutputs } from "@acme/api";
-import { cn } from "@acme/ui";
-import { Button } from "@acme/ui/button";
+import type { RouterOutputs } from '@envi/api';
+import { cn } from '@envi/ui';
+import { Button } from '@envi/ui/button';
 import {
   Form,
   FormControl,
@@ -12,19 +12,19 @@ import {
   FormItem,
   FormMessage,
   useForm,
-} from "@acme/ui/form";
-import { Input } from "@acme/ui/input";
-import { toast } from "@acme/ui/toast";
-import { CreatePostSchema } from "@acme/validators";
+} from '@envi/ui/form';
+import { Input } from '@envi/ui/input';
+import { toast } from '@envi/ui/toast';
+import { CreatePostSchema } from '@envi/validators';
 
-import { api } from "~/trpc/react";
+import { api } from '#/trpc/react';
 
 export function CreatePostForm() {
   const form = useForm({
     schema: CreatePostSchema,
     defaultValues: {
-      content: "",
-      title: "",
+      content: '',
+      title: '',
     },
   });
 
@@ -36,9 +36,9 @@ export function CreatePostForm() {
     },
     onError: (err) => {
       toast.error(
-        err?.data?.code === "UNAUTHORIZED"
-          ? "You must be logged in to post"
-          : "Failed to create post",
+        err?.data?.code === 'UNAUTHORIZED'
+          ? 'You must be logged in to post'
+          : 'Failed to create post',
       );
     },
   });
@@ -82,7 +82,7 @@ export function CreatePostForm() {
 }
 
 export function PostList(props: {
-  posts: Promise<RouterOutputs["post"]["all"]>;
+  posts: Promise<RouterOutputs['post']['all']>;
 }) {
   // TODO: Make `useSuspenseQuery` work without having to pass a promise from RSC
   const initialData = use(props.posts);
@@ -114,7 +114,7 @@ export function PostList(props: {
 }
 
 export function PostCard(props: {
-  post: RouterOutputs["post"]["all"][number];
+  post: RouterOutputs['post']['all'][number];
 }) {
   const utils = api.useUtils();
   const deletePost = api.post.delete.useMutation({
@@ -123,9 +123,9 @@ export function PostCard(props: {
     },
     onError: (err) => {
       toast.error(
-        err?.data?.code === "UNAUTHORIZED"
-          ? "You must be logged in to delete a post"
-          : "Failed to delete post",
+        err?.data?.code === 'UNAUTHORIZED'
+          ? 'You must be logged in to delete a post'
+          : 'Failed to delete post',
       );
     },
   });
@@ -156,16 +156,16 @@ export function PostCardSkeleton(props: { pulse?: boolean }) {
       <div className="flex-grow">
         <h2
           className={cn(
-            "w-1/4 rounded bg-primary text-2xl font-bold",
-            pulse && "animate-pulse",
+            'w-1/4 rounded bg-primary text-2xl font-bold',
+            pulse && 'animate-pulse',
           )}
         >
           &nbsp;
         </h2>
         <p
           className={cn(
-            "mt-2 w-1/3 rounded bg-current text-sm",
-            pulse && "animate-pulse",
+            'mt-2 w-1/3 rounded bg-current text-sm',
+            pulse && 'animate-pulse',
           )}
         >
           &nbsp;
