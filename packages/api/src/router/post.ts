@@ -1,9 +1,9 @@
-import { z } from "zod";
+import { z } from 'zod';
 
-import { desc, eq, schema } from "@acme/db";
-import { CreatePostSchema } from "@acme/validators";
+import { desc, eq, schema } from '@envi/db';
+import { CreatePostSchema } from '@envi/validators';
 
-import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
+import { createTRPCRouter, protectedProcedure, publicProcedure } from '../trpc';
 
 export const postRouter = createTRPCRouter({
   all: publicProcedure.query(({ ctx }) => {

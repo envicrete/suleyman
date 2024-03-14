@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light mode 
+--950: hsla(320, 7%, 8%, 1);
+--900: hsla(324, 8%, 12%, 1);
+--800: hsla(330, 7%, 16%, 1);
+--500: hsla(334, 3%, 48%, 1);
+--200: hsla(0, 0%, 80%, 1);
+--100: hsla(0, 0%, 84%, 1);
+--50: hsla(240, 4%, 89%, 1);
+--10: hsla(228, 20%, 95%, 1);
+--primary: hsla(325, 7%, 52%, 1);
+--alternate: hsla(210, 9%, 52%, 1);
+*/
+
+/* Dark mode 
+--950: hsla(320, 7%, 8%, 1);
+--900: hsla(324, 8%, 12%, 1);
+--800: hsla(330, 7%, 16%, 1);
+--400: hsla(330, 1%, 64%, 1);
+--200: hsla(0, 0%, 80%, 1);
+--100: hsla(0, 0%, 84%, 1);
+--50: hsla(240, 4%, 89%, 1);
+--10: hsla(228, 20%, 95%, 1);
+--primary: hsla(325, 7%, 52%, 1);
+--alternate: hsla(210, 9%, 52%, 1);
+*/
+
+@layer base {
+  :root {
+    --background: 240 4% 89%; /* 50 instead of white */
+    --foreground: 320 7% 8%; /* 950 */
+
+    --card: 228 20% 95%; /* white */
+    --card-foreground: 320 7% 8%; /* 950 */
+
+    --popover: 228 20% 95%; /* white */
+    --popover-foreground: 320 7% 8%; /* 950 */
+
+    --primary: 323 7% 36%; /* primary 600 */
+    --primary-foreground: 210 40% 98%; /* 50 */
+
+    --secondary: 0 0% 84%; /* 100 */
+    --secondary-foreground: 324 8% 12%; /* 900 */
+
+    --muted: 0 0% 84%; /* 100 */
+    --muted-foreground: 330 3% 40%; /* 500 */
+
+    --accent: 0 0% 84%; /* 100 */
+    --accent-foreground: 324 8% 12%; /* 900 */
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%; /* 50 */
+
+    --border: 0 0% 80%; /* 200 */
+    --input: 0 0% 80%; /* 200 */
+
+    --ring: 323 7% 36%; /* primary 600 */
+    --alternate: 210 9% 36%; /* alternate 600 */
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 3% 28%; /* 950 */
+    --foreground: 210 40% 98%; /* 50 */
+
+    --card: 240 3% 32%; /* 900 */
+    --card-foreground: 210 40% 98%; /* 50 */
+
+    --popover: 240 3% 32%; /* 900 */
+    --popover-foreground: 210 40% 98%; /* 50 */
+
+    --primary: 321 9% 52%; /* primary 400 */
+    --primary-foreground: 324 8% 12%; /* 900 */
+
+    --secondary: 240 4% 36%; /* 800 */
+    --secondary-foreground: 0 0% 84%; /* 100 */
+
+    --muted: 240 4% 36%; /* 800 */
+    --muted-foreground: 300 2% 72%; /* 400 */
+
+    --accent: 240 4% 36%; /* 800 */
+    --accent-foreground: 210 40% 98%; /* 50 */
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%; /* 50 */
+
+    --border: 240 4% 36%; /* 800 */
+    --input: 240 4% 36%; /* 800 */
+
+    --ring: 321 9% 52%; /* primary 400 */
+    --alternate: 215 9% 52%; /* alternate 400 */
+  }
+}
+
+@supports (font: -apple-system-body) and (-webkit-appearance: none) {
+  img[loading='lazy'] {
+    clip-path: inset(0.6px);
+  }
+}
+
+a,
+input,
+button {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 dark:focus-visible:ring-neutral-600 dark:focus-visible:ring-offset-neutral-900;
+}
