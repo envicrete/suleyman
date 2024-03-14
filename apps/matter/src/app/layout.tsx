@@ -69,7 +69,9 @@ export default function RootLayout({
     >
       <body className="dark: selection:bg-teal-300 dark:selection:bg-pink-500 dark:selection:text-white">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Navbar />
+          <Suspense>
+            <Navbar />
+          </Suspense>
           <Suspense>
             <main>{children}</main>
           </Suspense>
