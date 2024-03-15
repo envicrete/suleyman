@@ -73,7 +73,7 @@
     --popover: 240 3% 32%; /* 900 */
     --popover-foreground: 210 40% 98%; /* 50 */
 
-    --primary: 321 9% 52%; /* primary 400 */
+    --primary: 321 9% 56%; /* primary 400 */
     --primary-foreground: 324 8% 12%; /* 900 */
 
     --secondary: 240 4% 36%; /* 800 */
@@ -91,7 +91,7 @@
     --border: 240 4% 36%; /* 800 */
     --input: 240 4% 36%; /* 800 */
 
-    --ring: 321 9% 52%; /* primary 400 */
+    --ring: 321 9% 56%; /* primary 400 */
     --alternate: 215 9% 52%; /* alternate 400 */
   }
 }

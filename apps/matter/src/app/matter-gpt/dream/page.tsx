@@ -12,12 +12,24 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import LoadingDots from '#/components/loading-dots';
 import { CompareSlider } from '#/components/matter-gpt/compare-slider';
-import DropDown from '#/components/matter-gpt/drop-down';
+import GptDropDown from '#/components/matter-gpt/gpt-dropdown';
 import ResizablePanel from '#/components/matter-gpt/resizable-panel';
 import Toggle from '#/components/matter-gpt/toggle';
 import appendNewToName from '#/lib/matter-gpt/append-new-to-name';
 import downloadPhoto from '#/lib/matter-gpt/download-photo';
 import { rooms, themes } from '#/lib/matter-gpt/dropdown-types';
+
+interface CircleIconProps {
+  text: string;
+}
+
+const CircleIcon: React.FC<CircleIconProps> = ({ text }) => {
+  return (
+    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-white">
+      {text}
+    </div>
+  );
+};
 
 const options: UploadWidgetConfig = {
   apiKey: process.env.NEXT_PUBLIC_UPLOAD_API_KEY
@@ -31,13 +43,13 @@ const options: UploadWidgetConfig = {
       primary: '#8D7C88', // Primary buttons & links
       error: '#b91c1c', // Error messages
       shade100: '#ffffff', // Standard text
-      shade200: '#E3E3E5', // Secondary button text
-      shade300: '#E3E3E5', // Secondary button text (hover)
-      shade400: '#6a706e', // Welcome text
+      shade200: '#f8f9fb', // Secondary button text
+      shade300: '#f8f9fb', // Secondary button text (hover)
+      shade400: '#666f7a', // Welcome text
       shade500: '#434746', // Modal close button
       shade600: '#cfd2d0', // Border
-      shade700: '#4d5150', // Progress indicator background
-      shade800: '#4d5150', // File item background
+      shade700: '#666f7a', // Progress indicator background
+      shade800: '#666f7a', // File item background
       shade900: '#ffff', // Various (draggable crop buttons, etc.)
     },
   },
@@ -116,12 +128,13 @@ export default function DreamPage() {
               {!restoredImage && (
                 <>
                   <div className="w-full max-w-sm space-y-4">
-                    <div className="mt-3 flex items-center space-x-3">
-                      <p className="text-left font-medium">
-                        Choose your room theme.
+                    <div className="my-3 flex items-center space-x-3">
+                      <CircleIcon text="1" />
+                      <p className="text-left font-medium text-muted-foreground">
+                        Choose a design theme
                       </p>
                     </div>
-                    <DropDown
+                    <GptDropDown
                       theme={theme}
                       setTheme={(newTheme) =>
                         setTheme(newTheme as typeof theme)
@@ -130,12 +143,13 @@ export default function DreamPage() {
                     />
                   </div>
                   <div className="w-full max-w-sm space-y-4">
-                    <div className="mt-10 flex items-center space-x-3">
-                      <p className="text-left font-medium">
-                        Choose your room type.
+                    <div className="mb-3 mt-10 flex items-center space-x-3">
+                      <CircleIcon text="2" />
+                      <p className="text-left font-medium text-muted-foreground">
+                        Choose your room type
                       </p>
                     </div>
-                    <DropDown
+                    <GptDropDown
                       theme={room}
                       setTheme={(newRoom) => setRoom(newRoom as typeof room)}
                       themes={rooms}
@@ -143,8 +157,9 @@ export default function DreamPage() {
                   </div>
                   <div className="mt-4 w-full max-w-sm">
                     <div className="mt-6 flex w-96 items-center space-x-3">
-                      <p className="text-left font-medium">
-                        Upload a picture of your room.
+                      <CircleIcon text="3" />
+                      <p className="text-left font-medium text-muted-foreground">
+                        Upload a picture of your room
                       </p>
                     </div>
                   </div>
