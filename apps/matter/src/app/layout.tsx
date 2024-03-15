@@ -7,8 +7,6 @@ import { cn } from '@envi/ui';
 import { ThemeProvider } from '@envi/ui/theme';
 import { Toaster } from '@envi/ui/toast';
 
-import { env } from '#/env';
-
 import '#/styles/globals.css';
 
 import { Suspense } from 'react';
@@ -18,12 +16,12 @@ import { Analytics } from '@vercel/analytics/react';
 import Footer from '#/components/layout/footer';
 import Navbar from '#/components/layout/navbar';
 
+const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
+  ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+  : 'http://localhost:3000';
+
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    env.VERCEL_ENV === 'production'
-      ? 'https://matter.com.pk'
-      : 'http://localhost:3000',
-  ),
+  metadataBase: new URL(baseUrl),
   title: 'Matter x Envicrete',
   description:
     'Matter x Envicrete is redefining interior spaces with premium quality, highly-durable, eco-friendly surface materials with an aesthetic that matter.',
@@ -43,12 +41,47 @@ export const metadata: Metadata = {
     site: '@envicrete',
     creator: '@envicrete',
   },
+  icons: [
+    {
+      rel: 'icon',
+      url: '/favicon.ico',
+    },
+    {
+      rel: 'apple',
+      url: '/apple-touch-icon.png',
+    },
+    {
+      rel: 'icon',
+      url: '/favicon-16x16.png',
+      sizes: '16x16',
+    },
+    {
+      rel: 'icon',
+      url: '/favicon-32x32.png',
+      sizes: '32x32',
+    },
+    {
+      rel: 'icon',
+      url: '/favicon-192x192.png',
+      sizes: '192x192',
+    },
+    {
+      rel: 'icon',
+      url: '/android-chrome-512x512.png',
+      sizes: '512x512',
+    },
+    {
+      rel: 'mask-icon',
+      url: '/safari-pinned-tab.svg',
+    },
+  ],
+  manifest: `${baseUrl}/site.webmanifest`,
 };
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
+    { media: '(prefers-color-scheme: light)', color: '#E3E3E5' },
+    { media: '(prefers-color-scheme: dark)', color: '#45454A' },
   ],
 };
 

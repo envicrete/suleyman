@@ -23,7 +23,7 @@ const FooterMenuItem = ({ item }: { item: Menu }) => {
         className={cn(
           'block p-2 text-lg underline-offset-4 hover:text-primary hover:underline md:inline-block md:text-sm',
           {
-            'text-black dark:text-neutral-300': active,
+            'font-bold text-foreground underline underline-offset-4': active,
           },
         )}
       >
@@ -36,13 +36,21 @@ const FooterMenuItem = ({ item }: { item: Menu }) => {
 export default function FooterMenu({ menu }: { menu: Menu[] }) {
   if (!menu.length) return null;
 
+  const chunkSize = 4;
+  const menuChunks = [];
+  for (let i = 0; i < menu.length; i += chunkSize) {
+    menuChunks.push(menu.slice(i, i + chunkSize));
+  }
+
   return (
-    <nav>
-      <ul>
-        {menu.map((item: Menu) => {
-          return <FooterMenuItem key={item.title} item={item} />;
-        })}
-      </ul>
+    <nav className="md:grid md:grid-cols-3 md:gap-4 md:gap-x-16">
+      {menuChunks.map((chunk, index) => (
+        <ul key={index} className="list-none p-0">
+          {chunk.map((item: Menu) => (
+            <FooterMenuItem key={item.title} item={item} />
+          ))}
+        </ul>
+      ))}
     </nav>
   );
 }

@@ -9,11 +9,11 @@ export default function GptHero() {
           <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
             <div className="relative w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
               <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
-                Design your dream room with matterGPT
+                Design your dream room with MatterGPT
               </h1>
               <p className="mt-6 text-lg leading-8 text-muted-foreground sm:max-w-md lg:max-w-none">
                 Upload a photo of your room. Then, see the possibilities with
-                matterGPT. Send the output to your architect or our design team
+                MatterGPT. Send the output to your architect or our design team
                 for swift delivery. Free to use.
               </p>
               <div className="mt-10 flex items-center gap-x-6">
