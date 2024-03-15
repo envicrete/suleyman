@@ -120,7 +120,7 @@ export default function DreamPage() {
     <div className="mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center py-2">
       <div className="mb-8 mt-4 flex w-full flex-1 flex-col items-center justify-center px-4 text-center sm:mb-0">
         <h1 className="mx-auto mb-5 max-w-4xl text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
-          Design with matterGPT
+          Design with MatterGPT
         </h1>
         <ResizablePanel>
           <AnimatePresence mode="wait">
